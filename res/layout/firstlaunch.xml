@@ -2,20 +2,46 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+   
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+          <Button android:id="@+id/demo_collection_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/demo_collection"/>
+     
     
-     <LinearLayout android:orientation="vertical"
+    <TextView android:id="@android:id/empty"
+        style="?android:textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:padding="32dp"
+        android:text="no friends data available"
+        android:textColor="?android:textColorSecondary" />
+   
 
-        <Button android:id="@+id/demo_collection_button"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/demo_collection"/>
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="390dp" >
 
-      
-
-    </LinearLayout>
-
+         <LinearLayout
+             android:id="@+id/container"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:animateLayoutChanges="true"
+             android:divider="?android:dividerHorizontal"
+             android:orientation="vertical"
+             android:paddingLeft="16dp"
+             android:paddingRight="16dp"
+             android:showDividers="middle" >
+             
+         
+         </LinearLayout>
+     </ScrollView>
+ </LinearLayout>
 </FrameLayout>

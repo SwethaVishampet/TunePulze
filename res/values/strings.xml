@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	
+    
     <string name="app_name">TunePulze</string>
     <string name="action_settings">Settings</string>
     <string name="title_section1">Music</string>

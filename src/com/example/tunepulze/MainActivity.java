@@ -3,6 +3,7 @@ package com.example.tunepulze;
 import java.util.Locale;
 
 import com.example.tunepulze.*;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
@@ -179,13 +181,16 @@ public class MainActivity extends FragmentActivity implements
 	
 	public static class LaunchMusic extends Fragment {
 		
+		 private View rootView ;
+		 private ViewGroup mContainerView;
 		 @Override
 	      public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	              Bundle savedInstanceState) {
-	          View rootView = inflater.inflate(R.layout.firstlaunch, container, false);
-
+	         rootView= inflater.inflate(R.layout.firstlaunch, container, false);
+	         mContainerView = (ViewGroup) rootView.findViewById(R.id.container);	  
 	          
-	          	
+	          Button demo_button = (Button) rootView.findViewById(R.id.demo_collection_button);
+	           demo_button.setText("Listen music");
 				
 				  // Demonstration of a collection-browsing activity.
 	            rootView.findViewById(R.id.demo_collection_button)
@@ -200,19 +205,44 @@ public class MainActivity extends FragmentActivity implements
 
 	          return rootView;
 	      }
+		 
+		 private void addMusic() {
+			 rootView.findViewById(android.R.id.empty).setVisibility(View.GONE);
+		        // Instantiate a new "row" view.in
+			 final ViewGroup newView = (ViewGroup) LayoutInflater.from(getActivity()).inflate(
+		                R.layout.list_item_example, mContainerView, false);
+			 
+		     //   final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+		       //         R.layout.list_item_example, mContainerView, false);
+
+		        // Set the text in the new row to a random country.
+		        ((TextView) newView.findViewById(android.R.id.text1)).setText(
+		               "helloworld");
+		      
+
+		        // Because mContainerView has android:animateLayoutChanges set to true,
+		        // adding this view is automatically animated.
+		       mContainerView.addView(newView, 0);
+		       
+		    }
 	}
 	
 	public static class LaunchHeart extends Fragment {
 		
-		
+		private View rootView;
+		private ViewGroup mContainerView;
 		 @Override
 	      public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	              Bundle savedInstanceState) {
-	          View rootView = inflater.inflate(R.layout.firstlaunch, container, false);
+	          rootView = inflater.inflate(R.layout.firstlaunch, container, false);
 
-	          
-	          	
+	           mContainerView = (ViewGroup) rootView.findViewById(R.id.container);	  
+	           addItem();
+	           addItem();
 				
+	           Button demo_button = (Button) rootView.findViewById(R.id.demo_collection_button);
+	           demo_button.setText("Check HeartRate");
+	           
 				  // Demonstration of a collection-browsing activity.
 	            rootView.findViewById(R.id.demo_collection_button)
 	                    .setOnClickListener(new View.OnClickListener() {
@@ -222,27 +252,53 @@ public class MainActivity extends FragmentActivity implements
 	                            startActivity(intent);
 	                        }
 	                    });
-
-
+	            
+	            
 	          return rootView;
 	      }
-		
+		 private void addItem() {
+			 rootView.findViewById(android.R.id.empty).setVisibility(View.GONE);
+		        // Instantiate a new "row" view.in
+			 final ViewGroup newView = (ViewGroup) LayoutInflater.from(getActivity()).inflate(
+		                R.layout.list_item_example, mContainerView, false);
+			 
+		     //   final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+		       //         R.layout.list_item_example, mContainerView, false);
+
+		        // Set the text in the new row to a random country.
+		        ((TextView) newView.findViewById(android.R.id.text1)).setText(
+		               "helloworld");
+		      
+
+		        // Because mContainerView has android:animateLayoutChanges set to true,
+		        // adding this view is automatically animated.
+		       mContainerView.addView(newView, 0);
+		       
+		    }
 	}
 
 	
+	 
 	
 	  /**
    * A fragment that launches other parts of the demo application.
    */
   public static class LaunchSteps extends Fragment {
 
+	  private View rootView;
+		private ViewGroup mContainerView;
+	  
       @Override
       public View onCreateView(LayoutInflater inflater, ViewGroup container,
               Bundle savedInstanceState) {
-          View rootView = inflater.inflate(R.layout.firstlaunch, container, false);
+           rootView = inflater.inflate(R.layout.firstlaunch, container, false);
 
           
-          	
+           mContainerView = (ViewGroup) rootView.findViewById(R.id.container);	  
+        
+			
+           Button demo_button = (Button) rootView.findViewById(R.id.demo_collection_button);
+           demo_button.setText("Check Calories burnt");
 			
 			  // Demonstration of a collection-browsing activity.
             rootView.findViewById(R.id.demo_collection_button)
