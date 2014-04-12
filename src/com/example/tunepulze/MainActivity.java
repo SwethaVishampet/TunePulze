@@ -1,5 +1,8 @@
 package com.example.tunepulze;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import com.example.tunepulze.*;
@@ -21,8 +24,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+//import android.widget.ExpandableListAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -183,15 +195,67 @@ public class MainActivity extends FragmentActivity implements
 		
 		 private View rootView ;
 		 private ViewGroup mContainerView;
+		 public List<String> PopURLs=new ArrayList<String>(); 
+		 private List<String> CountryURLs=new ArrayList<String>();
+		 private List<String> RockURLs=new ArrayList<String>();
+		
+		ExpandableListAdapter listAdapter;
+	    ExpandableListView expListView;
+	    List<String> listDataHeader;
+	    HashMap<String, List<String>> listDataChild;
+	    
+	    
+	    
 		 @Override
 	      public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	              Bundle savedInstanceState) {
 	         rootView= inflater.inflate(R.layout.firstlaunch, container, false);
-	         mContainerView = (ViewGroup) rootView.findViewById(R.id.container);	  
-	          
-	          Button demo_button = (Button) rootView.findViewById(R.id.demo_collection_button);
-	           demo_button.setText("Listen music");
-				
+	         //mContainerView = (ViewGroup) rootView.findViewById(R.id.container);
+	         expListView = (ExpandableListView) rootView.findViewById(R.id.lvExp);
+	         rootView.findViewById(android.R.id.empty).setVisibility(View.GONE);
+	         // preparing list data
+	         prepareListData();
+	         prepareURLs();
+	         
+	         listAdapter = new ExpandableListAdapter(getActivity(), listDataHeader, listDataChild);
+	         
+	         // setting list adapter
+	         expListView.setAdapter(listAdapter);
+	         
+	      // Listview on child click listener
+		        expListView.setOnChildClickListener(new OnChildClickListener() {
+		 
+		            @Override
+		            public boolean onChildClick(ExpandableListView parent, View v,
+		                    int groupPosition, int childPosition, long id) {
+		            	
+		            	if(listDataHeader.get(groupPosition)=="Pop")
+		            	{
+		            		
+		            		BroadcastAppActivity.URL=PopURLs.get(childPosition);
+		            		
+		            	}
+		            	
+		                Toast.makeText(
+		                        getActivity(),
+		                        listDataHeader.get(groupPosition)
+		                                + " : "
+		                                + listDataChild.get(
+		                                        listDataHeader.get(groupPosition)).get(
+		                                        childPosition), Toast.LENGTH_SHORT)
+		                        .show();
+		                Intent intent = new Intent(getActivity(), BroadcastAppActivity.class);
+                        startActivity(intent);
+		                return false;
+		            }
+		        });
+			 
+	         
+	          //mContainerView.addView(expListView, 0);
+	         //expListView.addView(expListView,0);
+	         Button demo_button = (Button) rootView.findViewById(R.id.demo_collection_button);
+	         demo_button.setText("Listen music");
+			
 				  // Demonstration of a collection-browsing activity.
 	            rootView.findViewById(R.id.demo_collection_button)
 	                    .setOnClickListener(new View.OnClickListener() {
@@ -206,26 +270,59 @@ public class MainActivity extends FragmentActivity implements
 	          return rootView;
 	      }
 		 
-		 private void addMusic() {
-			 rootView.findViewById(android.R.id.empty).setVisibility(View.GONE);
-		        // Instantiate a new "row" view.in
-			 final ViewGroup newView = (ViewGroup) LayoutInflater.from(getActivity()).inflate(
-		                R.layout.list_item_example, mContainerView, false);
+		 private void prepareURLs()
+		 {
+			 PopURLs.add("hHUbLv4ThOo");
+			 PopURLs.add("hT_nvWreIhg");
+			 PopURLs.add("y6Sxv-sUYtM");
+			 PopURLs.add("mWRsgZuwf_8");
+			 PopURLs.add("nlcIKh6sBtc");
+			 PopURLs.add("-2U0Ivkn2Ds");
+		 }
+		 private void prepareListData() {
+		        
 			 
-		     //   final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-		       //         R.layout.list_item_example, mContainerView, false);
-
-		        // Set the text in the new row to a random country.
-		        ((TextView) newView.findViewById(android.R.id.text1)).setText(
-		               "helloworld");
-		      
-
-		        // Because mContainerView has android:animateLayoutChanges set to true,
-		        // adding this view is automatically animated.
-		       mContainerView.addView(newView, 0);
-		       
+			 	listDataHeader = new ArrayList<String>();
+		        listDataChild = new HashMap<String, List<String>>();
+		 
+		        // Adding child data
+		        listDataHeader.add("Pop");
+		        listDataHeader.add("Country");
+		        listDataHeader.add("Rock");
+		 
+		        // Adding child data
+		        List<String> pop = new ArrayList<String>();
+		        pop.add("Timber");
+		        pop.add("Counting Stars");
+		        pop.add("Happy");
+		        pop.add("Demons");
+		        pop.add("Royals");
+		        pop.add("Say Something");
+		 
+		        List<String> Country = new ArrayList<String>();
+		        Country.add("The Conjuring");
+		        Country.add("Despicable Me 2");
+		        Country.add("Turbo");
+		        Country.add("Grown Ups 2");
+		        Country.add("Red 2");
+		        Country.add("The Wolverine");
+		 
+		        List<String> Rock = new ArrayList<String>();
+		        Rock.add("2 Guns");
+		        Rock.add("The Smurfs 2");
+		        Rock.add("The Spectacular Now");
+		        Rock.add("The Canyons");
+		        Rock.add("Europa Report");
+		 
+		        listDataChild.put(listDataHeader.get(0), pop); // Header, Child data
+		        listDataChild.put(listDataHeader.get(1), Country);
+		        listDataChild.put(listDataHeader.get(2), Rock);
 		    }
+		 
+		
+		
 	}
+	
 	
 	public static class LaunchHeart extends Fragment {
 		

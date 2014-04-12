@@ -35,6 +35,7 @@ import nus.dtn.middleware.api.MiddlewareListener;
 /** App that broadcasts messages to everyone using a Mobile DTN. */
 public class BroadcastAppActivity extends YouTubeBaseActivity implements OnInitializedListener {
 
+	public static String URL ="xS0XiOLW_Qk";
 	@Override
 	public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
 		      boolean wasRestored) {
@@ -125,7 +126,7 @@ public class BroadcastAppActivity extends YouTubeBaseActivity implements OnIniti
                                     	//  player.cueVideo("xS0XiOLW_Qk");
                                         // Construct the DTN message
                                         DtnMessage message = new DtnMessage();
-                                        String chatMessage = "xS0XiOLW_Qk";
+                                        String chatMessage =URL;
                                         // Data part
                                         message.addData()                  // Create data chunk
                                             .writeString ( chatMessage );  // Chat message

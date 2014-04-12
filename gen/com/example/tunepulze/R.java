@@ -13,6 +13,7 @@ public final class R {
         public static final int exercise_type_preference_values=0x7f040007;
         public static final int maintain_preference=0x7f040008;
         public static final int maintain_preference_values=0x7f040009;
+        public static final int music=0x7f04000c;
         public static final int operation_level_preference=0x7f040002;
         public static final int operation_level_preference_values=0x7f040003;
         public static final int sensitivity_preference=0x7f040000;
@@ -54,53 +55,60 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int Button_Send=0x7f0a0009;
-        public static final int Button_Test=0x7f0a0004;
-        public static final int EditText_Message=0x7f0a0008;
-        public static final int TextView_Message=0x7f0a000a;
-        public static final int action_settings=0x7f0a0022;
-        public static final int box_calories=0x7f0a001a;
-        public static final int box_distance=0x7f0a0010;
-        public static final int box_pace=0x7f0a0014;
-        public static final int box_speed=0x7f0a0017;
-        public static final int box_steps=0x7f0a000d;
-        public static final int button_desired_pace_lower=0x7f0a001e;
-        public static final int button_desired_pace_raise=0x7f0a0021;
-        public static final int calories_units=0x7f0a001c;
-        public static final int calories_value=0x7f0a001b;
-        public static final int container=0x7f0a0002;
+        public static final int Button_Send=0x7f0a000c;
+        public static final int Button_Test=0x7f0a0005;
+        public static final int EditText_Message=0x7f0a000b;
+        public static final int TextView_Message=0x7f0a000d;
+        public static final int action_settings=0x7f0a0025;
+        public static final int box_calories=0x7f0a001d;
+        public static final int box_distance=0x7f0a0013;
+        public static final int box_pace=0x7f0a0017;
+        public static final int box_speed=0x7f0a001a;
+        public static final int box_steps=0x7f0a0010;
+        public static final int button_desired_pace_lower=0x7f0a0021;
+        public static final int button_desired_pace_raise=0x7f0a0024;
+        public static final int calories_units=0x7f0a001f;
+        public static final int calories_value=0x7f0a001e;
+        public static final int container=0x7f0a0003;
         public static final int demo_collection_button=0x7f0a0001;
-        public static final int desired_pace_control=0x7f0a001d;
-        public static final int desired_pace_label=0x7f0a001f;
-        public static final int desired_pace_value=0x7f0a0020;
-        public static final int distance_units=0x7f0a0012;
-        public static final int distance_value=0x7f0a0011;
-        public static final int pace_units=0x7f0a0016;
-        public static final int pace_value=0x7f0a0015;
+        public static final int desired_pace_control=0x7f0a0020;
+        public static final int desired_pace_label=0x7f0a0022;
+        public static final int desired_pace_value=0x7f0a0023;
+        public static final int distance_units=0x7f0a0015;
+        public static final int distance_value=0x7f0a0014;
+        public static final int lblListHeader=0x7f0a0009;
+        public static final int lblListItem=0x7f0a000a;
+        public static final int lvExp=0x7f0a0002;
+        public static final int pace_units=0x7f0a0019;
+        public static final int pace_value=0x7f0a0018;
         public static final int pager=0x7f0a0000;
-        public static final int preview=0x7f0a0007;
-        public static final int row_1=0x7f0a000c;
-        public static final int row_2=0x7f0a0013;
-        public static final int section_label=0x7f0a0003;
-        public static final int speed_units=0x7f0a0019;
-        public static final int speed_value=0x7f0a0018;
-        public static final int step_units=0x7f0a000f;
-        public static final int step_value=0x7f0a000e;
-        public static final int text=0x7f0a0006;
-        public static final int top=0x7f0a0005;
-        public static final int youtube_view=0x7f0a000b;
+        public static final int preview=0x7f0a0008;
+        public static final int row_1=0x7f0a000f;
+        public static final int row_2=0x7f0a0016;
+        public static final int section_label=0x7f0a0004;
+        public static final int speed_units=0x7f0a001c;
+        public static final int speed_value=0x7f0a001b;
+        public static final int step_units=0x7f0a0012;
+        public static final int step_value=0x7f0a0011;
+        public static final int text=0x7f0a0007;
+        public static final int top=0x7f0a0006;
+        public static final int youtube_view=0x7f0a000e;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int firstlaunch=0x7f030001;
-        public static final int fragment_main_dummy=0x7f030002;
-        public static final int heart_rate=0x7f030003;
-        public static final int list_item_example=0x7f030004;
-        public static final int music=0x7f030005;
-        public static final int pedometer=0x7f030006;
+        public static final int activity_expandable_list_adapter=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int firstlaunch=0x7f030002;
+        public static final int fragment_main_dummy=0x7f030003;
+        public static final int heart_rate=0x7f030004;
+        public static final int list_group=0x7f030005;
+        public static final int list_item=0x7f030006;
+        public static final int list_item_example=0x7f030007;
+        public static final int music=0x7f030008;
+        public static final int pedometer=0x7f030009;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int expandable_list_adapter=0x7f090000;
+        public static final int main=0x7f090001;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -123,6 +131,7 @@ public final class R {
         public static final int extra_high=0x7f07001e;
         public static final int extra_low=0x7f070026;
         public static final int hello_blank_fragment=0x7f07005d;
+        public static final int hello_world=0x7f070061;
         public static final int high=0x7f070020;
         public static final int higher=0x7f070021;
         public static final int inches=0x7f070010;
@@ -187,6 +196,7 @@ public final class R {
         public static final int tell_steps_setting=0x7f07004f;
         public static final int tell_steps_setting_details=0x7f070050;
         public static final int tell_what=0x7f07004e;
+        public static final int title_activity_expandable_list_adapter=0x7f070060;
         public static final int title_section1=0x7f070002;
         public static final int title_section2=0x7f070003;
         public static final int title_section3=0x7f070004;
